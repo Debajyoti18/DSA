@@ -1,3 +1,5 @@
+
+Time Complxity = O(word2_length * each_word2.length*26 + word1.length*each_word1.length*26)
 class Solution {
     public List<String> wordSubsets(String[] words1, String[] words2) {
         int[] freq=new int[26];
