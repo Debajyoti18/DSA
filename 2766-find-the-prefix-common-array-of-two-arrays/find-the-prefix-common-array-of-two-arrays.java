@@ -1,3 +1,7 @@
+//TIME COMPLEXITY=O(N)
+//SPACE =O(n+1)
+
+
 class Solution {
     public int[] findThePrefixCommonArray(int[] A, int[] B) {
         int n = A.length;
