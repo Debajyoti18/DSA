@@ -1,0 +1,44 @@
+Given a string of lowercase letters in the range ascii[a-z], determine the index of a character that can be removed to make the string a palindrome.
+There may be more than one solution, but any will do. If the word is already a palindrome or there is no solution, return -1. Otherwise, 
+return the index of a character to remove.
+Example
+Either remove 'b' at index  or 'c' at index .
+Function Description
+Complete the palindromeIndex function in the editor below.
+palindromeIndex has the following parameter(s):
+string s: a string to analyze
+Returns int: the index of the character to remove or 
+//intution -Find for the breaking index of the palindrome by checking its left is already palindrome or right is already palindrome or not .if left is palindrome then return 
+the index of that breaking index other wise return -1 as already in palindrome.
+
+
+ public static int palindromeIndex(String s) {
+            StringBuffer sb = new StringBuffer(s);
+            if(s.equals(sb.reverse().toString())){
+                return -1;
+            }
+            int n = s.length()-1,i = 0;
+            while(i<n && s.charAt(i)==s.charAt(n)){
+                i++;
+                n--;
+            }
+           if(isPalindrome(s,i+1,n)){ //eg for baaa ,check for aaa is palindrome or not .yes so return b index
+            return i;
+           }
+           
+            if(isPalindrome(s,i,n-1)){//eg for aaab ,check for aaa is palindrome .so return b index 
+                return n;
+            }
+            return -1;//already palindrome
+            
+    }
+    public static boolean isPalindrome(String s,int l,int r){
+        while(l<r){
+            if(s.charAt(l)!=s.charAt(r)){
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
