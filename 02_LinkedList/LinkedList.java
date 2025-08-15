@@ -126,18 +126,35 @@ public class LinkedList {
 
     // Remove Last Element -> O(N) {Singly Linked List}
     public void removeLast() {
-        
+         if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        if (size == 1) {
+            head = tail = null;
+            size = 0;
+            return;
+        }
+
+        Node secondLast = head;
+        while (secondLast.next != tail) {
+            secondLast = secondLast.next;
+        }
+
+        size--;
+        tail = secondLast;
+        tail.next = null;
     }
        
 
-    // Remove Element at Given Index -> O(N) Worst Case
-    public void removeAt(int idx) {
-       
-    }
+
     
     // Display Linked List in Reverse using Recursion:
     // O(N) Time, O(N) Recursion Call Stack Space
     public void displayReverse(Node curr){
-     
+         if (curr == null) return;//base case
+         displayReverse(curr.next);//faith
+         System.out.println(curr.data);
     }
 }
