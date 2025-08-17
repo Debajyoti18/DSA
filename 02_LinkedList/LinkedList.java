@@ -157,4 +157,17 @@ public class LinkedList {
          displayReverse(curr.next);//faith
          System.out.println(curr.data);
     }
+    //data swapping iteratively
+    public void reverseLinkedList(){
+            int li = 0;
+            int ri = size -1;
+            while(li < ri){
+                int left = getAt(li);
+                int right = getAt(ri);
+
+                 int temp = left;left=right;right=temp;
+                 li++;
+                 ri--;
+            }
+    }
 }
