@@ -170,4 +170,16 @@ public class LinkedList {
                  ri--;
             }
     }
+    //Reverse Link
+    public void reverseLL(){
+        Node p = null,c=head;
+        while(c != null){
+           Node next = c.next;
+            c.next = p;
+            p = c;
+            c = next;
+        
+        }
+        Node temp = head;head = tail;tail=temp;
+    }
 }
