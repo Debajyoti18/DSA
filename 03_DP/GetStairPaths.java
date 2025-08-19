@@ -11,7 +11,15 @@ public class GetStairPaths {
         for(String p : res ){
             System.out.print(p +",");
           }
-        System.out.println(" Printing the Paths :" + printPaths(x));
+        System.out.println("\nPrinting the Paths :" );
+         printPaths(x,"");
+
+         System.out.println("FOR NUMBER OF VALID PATHS WITH GIVEN array :");
+         
+        System.out.println("Number of stair paths  By recursion  :" + stairPaths());
+
+
+
 
     }
     //recusion - this take more number of calls so less efficient 
@@ -40,6 +48,18 @@ public class GetStairPaths {
              } 
              return  res;
     }
-    // recursion - instead of ArrayList we can Print it 
+    // recursion - instead of ArrayList we can Print it -less number of calls
+    public static void printPaths(int n , String op){
+        if ( n == 0) {
+          System.out.print(op + ",");
+        } else if(n < 0){
+            return;
+        }
+        printPaths(n-1,op+1);
+        printPaths(n-2,op+2);
+        printPaths(n-3,op+3);
+    }
+    //dp - optimal 
+
 
 }
