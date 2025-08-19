@@ -15,12 +15,35 @@ public class GetStairPaths {
          printPaths(x,"");
 
          System.out.println("FOR NUMBER OF VALID PATHS WITH GIVEN array :");
-         
-        System.out.println("Number of stair paths  By recursion  :" + stairPaths());
+         System.out.println("Enter number of stairs:");
+        int n = sc.nextInt();
+
+        System.out.println("Enter number of allowed steps:");
+        int m = sc.nextInt();
+
+        int[] steps = new int[m];
+        System.out.println("Enter allowed steps:");
+        for (int i = 0; i < m; i++) {
+            steps[i] = sc.nextInt();
+        }
+
+        int ways = countWays(steps, n);
 
 
 
+    }
+    private static int countWays(int[] steps, int n) {
+       int[] dp = new int[n+1];
 
+       dp[0]=1;
+       if(n == 0){
+        return 1;
+       }
+       if( dp[n] != 0){
+        return dp[n];
+       }
+       dp[n] = countWays(steps, n-1)+countWays(steps, n-2)+countWays(steps, n-3);
+       return dp[n];
     }
     //recusion - this take more number of calls so less efficient 
     public static ArrayList<String> getPaths(int n){
