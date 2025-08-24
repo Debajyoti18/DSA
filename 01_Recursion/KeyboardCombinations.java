@@ -22,6 +22,8 @@ public class KeyboardCombinations {
 
         ArrayList<String> res = getKPC(digits);
         System.out.println("Possible combinations: " + res);
+        System.out.println("\n Printing Subsequences :");
+        printKPC(digits,"");
     }
 
    private static ArrayList<String> getKPC(String digits) {
@@ -42,6 +44,19 @@ public class KeyboardCombinations {
             }
         }
     return res;
+   }
+   //Printing the KeyBoard Combination without returning as List .
+   private static void printKPC(String str , String op){
+    if(str.length() == 0){
+        System.out.print(op + " , ");
+        return;
+    }
+    char ch = str.charAt(0);
+    String rest = str.substring(1);
+    String codefor = codes[ch -'0'];
+    for(int i =0 ;i < codefor.length();i++){
+        printKPC(rest, op + codefor.charAt(i));
+    }
    }
     
 }
