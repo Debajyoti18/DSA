@@ -14,9 +14,9 @@ public class GetStairPaths {
         System.out.println("\nPrinting the Paths :" );
          printPaths(x,"");
 
-         System.out.println("FOR NUMBER OF VALID PATHS WITH GIVEN array :");
-         System.out.println("Enter number of stairs:");
-        int n = sc.nextInt();
+        //  System.out.println("FOR NUMBER OF VALID PATHS WITH GIVEN array :");
+        //  System.out.println("Enter number of stairs:");
+        // int n = sc.nextInt();
 
         // System.out.println("Enter number of allowed steps:");
         // int m = sc.nextInt();
@@ -29,7 +29,8 @@ public class GetStairPaths {
 
         // int ways = countWays(steps, n);
 
-        System.out.println("The number of stair paths is : " + GetStairPathsDP1(n, new int[n+1]) );
+        System.out.println("\nThe number of stair paths is : " + GetStairPathsDP1(x, new int[x+1]) );
+        System.out.println("The number of stair paths is : " + countTab(x) );
 
 
     }
@@ -83,7 +84,7 @@ public class GetStairPaths {
         printPaths(n-2,op+2);
         printPaths(n-3,op+3);
     }
-    //dp - optimal 
+    //dp - optimal  TOP-DOWN
     private static int GetStairPathsDP1(int n , int[] arr){
       if(n == 0){
         return 1;
@@ -95,6 +96,21 @@ public class GetStairPaths {
       }
       arr[n] = GetStairPathsDP1(n-1, arr) + GetStairPathsDP1(n-2, arr) + GetStairPathsDP1(n-3, arr);
       return arr[n];
+    }
+    //DP - BUTTOM-UP APPROACH
+    private static int countTab(int n ){
+      int[] dp = new int[n+1];
+      dp[0] = 1; //
+      for(int i = 1; i < dp.length ; i++ ){
+        if(i == 1){
+          dp[i] = dp[i-1];
+        }else if(i == 2){
+          dp[i] = dp[i-1] + dp[i-2];
+        }else{
+          dp[i] = dp[i-1]+dp[i-2]+dp[i-3];
+        }
+      }
+      return dp[n];
     }
 
 
