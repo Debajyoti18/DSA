@@ -15,12 +15,20 @@ public class SubsetSum {
         System.out.print("Enter target sum: ");
         int sum = sc.nextInt();
 
+
         if (subsetSum(arr, n, sum)) {
             System.out.println("Subset with given sum exists ");
         } else {
             System.out.println("No subset with given sum ");
         }
+        Boolean[][] dp = new Boolean[n + 1][sum + 1];
+        if (subsetSumRec(arr, n, sum,dp)) {
+            System.out.println("Subset with given sum exists ");
+        } else {
+            System.out.println("No subset with given sum ");
+        }
     }
+    
     //Tabulation - Buttom-Up
     private static boolean subsetSum(int[] arr, int n, int sum) {
         boolean[][] dp = new boolean[n + 1][sum + 1];
@@ -42,4 +50,23 @@ public class SubsetSum {
         return dp[n][sum];
     }
     //TOPDOWN -RECURSIVE+MEMOIZATION
+    private static boolean subsetSumRec(int[] arr, int n, int sum, Boolean[][] dp) {
+            if(sum == 0) return true;//sum can be 0
+            if(n == 0) return false;// empty array never have subset of sum
+            if (sum == 0) return true;   // sum 0 is always possible
+        if (n == 0) return false;    // no elements left but sum > 0
+
+        // If already computed, return from dp
+        if (dp[n][sum] != null) return dp[n][sum];
+
+        // If current element is less than or equal to target sum
+        if (arr[n - 1] <= sum) {
+            dp[n][sum] = subsetSumRec(arr, n - 1, sum - arr[n - 1], dp)   // include current element
+                      || subsetSumRec(arr, n - 1, sum, dp);              // exclude current element
+        } else {
+            dp[n][sum] = subsetSumRec(arr, n - 1, sum, dp); // cannot include current element
+        }
+
+        return dp[n][sum];
+    }
 }
