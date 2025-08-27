@@ -24,7 +24,7 @@ public class MinSubsetSumDifference {
         System.out.println("Minimum Subset Sum Difference (Recursion + Memo) = " + ans2);
     }
 
-    // ✅ Bottom-up DP version
+    // Bottom-up DP version
     private static int minSubsetSumDiffDP(int[] arr, int n, int sum) {
         int target = sum / 2;
         boolean[][] dp = new boolean[n + 1][target + 1];
@@ -55,7 +55,7 @@ public class MinSubsetSumDifference {
         return sum - 2 * s1;
     }
 
-    // ✅ Recursion + Memoization version
+    // Recursion + Memoization version
     private static int minSubsetSumDiffRec(int[] arr, int n, int sum, int target, Boolean[][] dp) {
         // Find largest subset sum ≤ target
         int s1 = maxSubsetSum(arr, n, target, dp);
