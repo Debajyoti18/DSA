@@ -14,3 +14,15 @@ public class SubArraysOfAnArray {
         }
     }
 }
+/*
+a  
+a  b
+a  b  c
+a  b  c  d
+b
+b  c
+b  c  d
+c
+c  d
+d
+ */
