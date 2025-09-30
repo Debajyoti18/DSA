@@ -26,7 +26,18 @@ public class GenericTree {
         display(root);
     }
     private static void display(Node root) {
-        
+        if( root == null){
+            return;
+        }
+        String str = root.val + "->";
+        for(Node child : root.childerns){
+               str += child.val +",";
+        }
+        str += ".";
+        System.out.println(str);
+        for(Node child : root.childerns){
+            display(child);
+        }
     }
     public static Node constructTree(int[]  arr){
             if( arr.length == 0 || arr == null){
