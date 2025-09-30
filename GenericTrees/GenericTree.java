@@ -24,6 +24,8 @@ public class GenericTree {
         
         System.out.println("Tree Display:");
         display(root);
+        int x = SizeMaxHeight.getSize(root);
+        System.out.println("Tree Size:" + x);
     }
     private static void display(Node root) {
         if( root == null){
