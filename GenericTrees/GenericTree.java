@@ -34,7 +34,9 @@ public class GenericTree {
         TraversalPrePost.traversePrePost(root);
         TraversalPrePost.levelOrderTraversal(root);
         System.out.println("--------------------------------");
-        LevelOrderTraversal.levelOrderLineByLine(root);
+        LevelOrderTraversal.levelOrderLineByLine1(root);
+         System.out.println("--------------------------------");
+         LevelOrderTraversal.levelOrderLineByLineZigZag(root);
 
     }
     private static void display(Node root) {
