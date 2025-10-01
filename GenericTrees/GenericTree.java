@@ -5,14 +5,15 @@ import java.util.Stack;
 
 class Node{
     int val;
-    ArrayList<Node> childerns;
+    ArrayList<Node> children;
+    public Node[] childern;
     public Node(int x){
         this.val = x;
-        this.childerns = new ArrayList<>();
+        this.children = new ArrayList<>();
     }
     public Node(){
         this.val = 0;
-         this.childerns = new ArrayList<>();
+         this.children = new ArrayList<>();
     }
 }
 
@@ -28,8 +29,10 @@ public class GenericTree {
         System.out.println("Tree Size:" + x);
         int maximum = SizeMaxHeight.getMaximum(root);
         System.out.println("Maximum Element:" + maximum); 
-        int maxHeightEdeges = getHeightEdges(root);
-        System.out.println("Maximum height:" + maxHeightEdeges); 
+        // int maxHeightEdeges = getHeightEdges(root);
+        // System.out.println("Maximum height:" + maxHeightEdeges); 
+        TraversalPrePost.traversePrePost(root);
+        TraversalPrePost.levelOrderTraversal(root);
 
     }
     private static void display(Node root) {
@@ -37,12 +40,12 @@ public class GenericTree {
             return;
         }
         String str = root.val + "->";
-        for(Node child : root.childerns){
+        for(Node child : root.children){
                str += child.val +",";
         }
         str += ".";
         System.out.println(str);
-        for(Node child : root.childerns){
+        for(Node child : root.children){
             display(child);
         }
     }
@@ -59,7 +62,7 @@ public class GenericTree {
                         root = temp;
                     }else{
                         Node parent = stack.peek();
-                        parent.childerns.add(temp);
+                        parent.children.add(temp);
                     }
                     stack.push(temp);
                 }else{

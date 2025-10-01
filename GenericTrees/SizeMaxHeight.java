@@ -8,7 +8,7 @@ public static int getSize(Node root){
     int size = 0; 
     
     // 1. Recursive step (Faith): Calculate size of all subtrees.
-    for(Node child : root.childerns){ // Note: uses 'childerns'
+    for(Node child : root.children){ // Note: uses 'childerns'
        int childsize = getSize(child); 
        size += childsize;
     }
@@ -19,7 +19,7 @@ public static int getSize(Node root){
 }
 public static int getMaximum(Node node){
     int max = Integer.MIN_VALUE;
-    for(Node chilNode : node.childerns){
+    for(Node chilNode : node.children){
         int x = getMaximum(chilNode);
         max = Math.max(x, max);
     }
@@ -28,7 +28,7 @@ public static int getMaximum(Node node){
 }
 public static int getHeightEdges(Node root){
     int height = -1 ;//for single node height is 0
- for(Node chilNode : root.childerns){
+ for(Node chilNode : root.children){
         int x = getHeightEdges(chilNode);
         height = Math.max(x, height);
     }
