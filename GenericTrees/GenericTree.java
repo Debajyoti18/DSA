@@ -26,6 +26,11 @@ public class GenericTree {
         display(root);
         int x = SizeMaxHeight.getSize(root);
         System.out.println("Tree Size:" + x);
+        int maximum = SizeMaxHeight.getMaximum(root);
+        System.out.println("Maximum Element:" + maximum); 
+        int maxHeightEdeges = getHeightEdges(root);
+        System.out.println("Maximum height:" + maxHeightEdeges); 
+
     }
     private static void display(Node root) {
         if( root == null){

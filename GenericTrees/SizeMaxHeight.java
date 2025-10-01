@@ -17,5 +17,23 @@ public static int getSize(Node root){
     size += 1; 
     return size;
 }
+public static int getMaximum(Node node){
+    int max = Integer.MIN_VALUE;
+    for(Node chilNode : node.childerns){
+        int x = getMaximum(chilNode);
+        max = Math.max(x, max);
+    }
+     max = Math.max(node.val, max);
+     return max;
+}
+public static int getHeightEdges(Node root){
+    int height = -1 ;//for single node height is 0
+ for(Node chilNode : root.childerns){
+        int x = getHeightEdges(chilNode);
+        height = Math.max(x, height);
+    }
+    return height +1;
+
+}
     
 }
