@@ -33,6 +33,8 @@ public class GenericTree {
         // System.out.println("Maximum height:" + maxHeightEdeges); 
         TraversalPrePost.traversePrePost(root);
         TraversalPrePost.levelOrderTraversal(root);
+        System.out.println("--------------------------------");
+        LevelOrderTraversal.levelOrderLineByLine(root);
 
     }
     private static void display(Node root) {
