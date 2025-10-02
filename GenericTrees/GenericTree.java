@@ -42,11 +42,12 @@ public class GenericTree {
         // System.out.println("--------------------------------");
         // LevelOrderTraversal.levelOrderLineByLine1(root);
         //  System.out.println("--------------------------------");
-         LevelOrderTraversal.levelOrderLineByLineZigZag(root);
-         System.out.println("--------------------------------");
-         LevelOrderTraversal.optimizedLevelOrder(root);
-         System.out.println("--------------------------------");
-         LevelOrderTraversal.levelOrderCount(root);
+        //  LevelOrderTraversal.levelOrderLineByLineZigZag(root);
+        //  System.out.println("--------------------------------");
+        //  LevelOrderTraversal.optimizedLevelOrder(root);
+        //  System.out.println("--------------------------------");
+        //  LevelOrderTraversal.levelOrderCount(root);
+           System.out.println( SearchInTree.search(root, 1120));
 
     }
     public static void display(Node root) {
