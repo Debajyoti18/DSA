@@ -14,8 +14,11 @@ public class MirrorOfTree {
    };
    Node root = GenericTree.constructTree(arr);
    GenericTree.display(root);
-   mirror(root);
+//    mirror(root);
+//    System.out.println("--------------------------");
+//    GenericTree.display(root);
    System.out.println("--------------------------");
+    RemoveLeaves.removeLeaves(root);
    GenericTree.display(root);
 
     }
