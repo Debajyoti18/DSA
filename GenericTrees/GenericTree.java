@@ -6,7 +6,6 @@ import java.util.Stack;
 class Node{
     int val;
     ArrayList<Node> children;
-    public Node[] childern;
     public Node(int x){
         this.val = x;
         this.children = new ArrayList<>();
@@ -19,24 +18,33 @@ class Node{
 
 public class GenericTree {
     public static void main(String[] args) {
-         int[] arr = {10, 20, -1, 30, 50, -1, -1, 40, -1, -1};
+       int[] arr = {
+    10, 
+      20, 50, -1, 60, -1, -1,    // 20’s subtree
+      30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1,   // 30’s subtree
+      40, 100, -1, -1,           // 40’s subtree
+    -1
+};
+
         
         Node root = constructTree(arr);
         
-        System.out.println("Tree Display:");
-        display(root);
-        int x = SizeMaxHeight.getSize(root);
-        System.out.println("Tree Size:" + x);
-        int maximum = SizeMaxHeight.getMaximum(root);
-        System.out.println("Maximum Element:" + maximum); 
+        // System.out.println("Tree Display:");
+        // display(root);
+        // int x = SizeMaxHeight.getSize(root);
+        // System.out.println("Tree Size:" + x);
+        // int maximum = SizeMaxHeight.getMaximum(root);
+        // System.out.println("Maximum Element:" + maximum); 
         // int maxHeightEdeges = getHeightEdges(root);
         // System.out.println("Maximum height:" + maxHeightEdeges); 
-        TraversalPrePost.traversePrePost(root);
-        TraversalPrePost.levelOrderTraversal(root);
-        System.out.println("--------------------------------");
-        LevelOrderTraversal.levelOrderLineByLine1(root);
-         System.out.println("--------------------------------");
+        // TraversalPrePost.traversePrePost(root);
+        // TraversalPrePost.levelOrderTraversal(root);
+        // System.out.println("--------------------------------");
+        // LevelOrderTraversal.levelOrderLineByLine1(root);
+        //  System.out.println("--------------------------------");
          LevelOrderTraversal.levelOrderLineByLineZigZag(root);
+         System.out.println("--------------------------------");
+         LevelOrderTraversal.optimizedLevelOrder(root);
 
     }
     private static void display(Node root) {

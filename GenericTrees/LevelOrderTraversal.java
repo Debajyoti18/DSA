@@ -52,5 +52,26 @@ public class LevelOrderTraversal {
         }
         
     }
-    
+    //optimized Level Order Traversal using One Queue
+    public static void optimizedLevelOrder(Node root){
+        if(root == null) return;
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        queue.add(new Node(-1));
+        while(queue.size() > 0){
+            root = queue.remove();
+            if( root.val != -1){
+                System.out.print(root.val + " ");
+                for(Node childNode: root.children){
+                       queue.add(childNode);
+                }
+            }else{
+                if(queue.size() > 0){
+                    queue.add(new Node(-1));
+                    System.out.println();
+                }
+            }
+        }
+    }
+
 }
