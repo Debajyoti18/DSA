@@ -49,7 +49,7 @@ public class GenericTree {
          LevelOrderTraversal.levelOrderCount(root);
 
     }
-    private static void display(Node root) {
+    public static void display(Node root) {
         if( root == null){
             return;
         }
