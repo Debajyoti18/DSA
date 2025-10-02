@@ -45,6 +45,8 @@ public class GenericTree {
          LevelOrderTraversal.levelOrderLineByLineZigZag(root);
          System.out.println("--------------------------------");
          LevelOrderTraversal.optimizedLevelOrder(root);
+         System.out.println("--------------------------------");
+         LevelOrderTraversal.levelOrderCount(root);
 
     }
     private static void display(Node root) {

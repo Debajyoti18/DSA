@@ -73,5 +73,22 @@ public class LevelOrderTraversal {
             }
         }
     }
+    //Optimized Count Approach
+    public static void levelOrderCount(Node node){
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(node);
+        while(queue.size() > 0){
+            int currentSize = queue.size();
+            for(int i =0;i< currentSize; i++){
+                node = queue.remove();
+                System.out.print(node.val + " ");
+                 for(Node chNode : node.children){
+                queue.add(chNode);
+                }
+            }
+           
+            System.out.println();
+        }
+    }
 
 }
