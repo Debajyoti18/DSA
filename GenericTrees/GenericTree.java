@@ -48,7 +48,10 @@ public class GenericTree {
         //  System.out.println("--------------------------------");
         //  LevelOrderTraversal.levelOrderCount(root);
            System.out.println( SearchInTree.search(root, 1120));
-
+           ArrayList<Node> list= PathFromNodeToLeaf.pathFromRootToElement(root, 120);
+            for(Node d : list){
+                System.out.print(d.val+ " ");
+            }
     }
     public static void display(Node root) {
         if( root == null){
