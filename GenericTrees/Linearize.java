@@ -1,6 +1,7 @@
 package GenericTrees;
 
 public class Linearize {
+    //Brute Force-O(n2)
     private static void linearize(Node node){
         for(Node chNode : node.children){
             linearize(chNode);
@@ -19,4 +20,10 @@ public class Linearize {
        }
        return root;
     }
+
+
+    //linearize optimized - O(n)
+    
+
+
 }
