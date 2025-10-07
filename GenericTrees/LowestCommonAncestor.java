@@ -3,19 +3,22 @@ package GenericTrees;
 import java.util.ArrayList;
 
 public class LowestCommonAncestor {
-    
+
     public static  int  lowestCommonAncestor(Node root ,int x, int y){
-            ArrayList<Node> p1 =  pathFromRootToElement(root, x);
-            ArrayList<Node> p2 =  pathFromRootToElement(root, y);
+            ArrayList<Node> p1 =  pathFromRootToElement(root, x);//find paths for first node
+            ArrayList<Node> p2 =  pathFromRootToElement(root, y);//find paths for second node
+            //traverse form last paths 
             int i = p1.size() - 1;
             int j = p2.size() - 1;
+            //check for the each elemnts one by one and bifurcate at the lca point 
             while ( i >= 0  && j >= 0 && p1.get(i) == p2.get(j)) {
                 i--;
                 j--;
-
             }
+            
             i++;
             j++;
+
             return p1.get(i).val;
     }
 
