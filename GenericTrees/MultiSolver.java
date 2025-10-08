@@ -68,6 +68,9 @@ public class MultiSolver {
         System.out.println(size + "\n" + maximum +"\n" +minimum +"\n"+height);
 
 
+        
+
+
     }
     public static void multiSolver(Node root , int depth){
         size++;
