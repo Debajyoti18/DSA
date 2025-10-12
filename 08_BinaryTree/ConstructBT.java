@@ -4,33 +4,33 @@ import java.util.*;
 
 class ConstructBT {
     
-  public class TreeNode {
+  public class Node {
      int val;
-     TreeNode left;
-     TreeNode right;
-    TreeNode() {}
-     TreeNode(int val) { this.val = val; }
-     TreeNode(int val, TreeNode left, TreeNode right) {
+     Node left;
+     Node right;
+    Node() {}
+     Node(int val) { this.val = val; }
+     Node(int val, Node left, Node right) {
          this.val = val;
          this.left = left;
          this.right = right;
      }
  }
     static class Pair {
-        TreeNode node;
+        Node node;
         int state;
 
-        Pair(TreeNode node, int state) {
+        Pair(Node node, int state) {
             this.node = node;
             this.state = state;
         }
     }
 
-    public TreeNode buildTree(Integer[] preorder) {
+    public Node buildTree(Integer[] preorder) {
         if (preorder == null || preorder.length == 0 || preorder[0] == null) 
             return null;
 
-        TreeNode root = new TreeNode(preorder[0]);
+        Node root = new Node(preorder[0]);
         Stack<Pair> stack = new Stack<>();
         stack.push(new Pair(root, 1));
 
@@ -42,7 +42,7 @@ class ConstructBT {
             if (top.state == 1) {
                 // process left child
                 if (preorder[index] != null) {
-                    TreeNode left = new TreeNode(preorder[index]);
+                    Node left = new Node(preorder[index]);
                     top.node.left = left;
                     stack.push(new Pair(left, 1));
                 }
@@ -52,7 +52,7 @@ class ConstructBT {
             else if (top.state == 2) {
                 // process right child
                 if (index < preorder.length && preorder[index] != null) {
-                    TreeNode right = new TreeNode(preorder[index]);
+                    Node right = new Node(preorder[index]);
                     top.node.right = right;
                     stack.push(new Pair(right, 1));
                 }
