@@ -1,3 +1,5 @@
+
+
 public class SizeMaxHeight {
     public static void main(String[] args) {
         
@@ -12,7 +14,7 @@ public class SizeMaxHeight {
     }
     public static int height(Node node){
         if( node == null){
-            return -1;
+            return -1; // 0 for node , -1 for edge
         }
         int lh = height(node.left);
         int rh = height(node.right);
@@ -20,12 +22,20 @@ public class SizeMaxHeight {
     }
     public static int max(Node node){
         if( node == null){
-            return -1;
+            return Integer.MIN_VALUE;
         }
         int left = max(node.left);
         int right = max(node.right);
         int max = Math.max(node.data, Math.max(left, right));
         return max;
+    }
+    public static int sum(Node root){
+        if( root == null ){
+            return 0;
+        }
+        int left = max(root.left);
+        int right = max(root.right);
+        return left + right + root.data;
     }
 }
 class Node {
