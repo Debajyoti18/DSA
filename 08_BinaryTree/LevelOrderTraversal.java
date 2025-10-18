@@ -25,4 +25,47 @@ public class LevelOrderTraversal {
             System.out.println();
         }
     }
+    
+}
+
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+class Solution {
+    public ArrayList<ArrayList<Integer>> levelOrder(Node root) {
+       
+        // code here
+        ArrayList<ArrayList<Integer>> m = new ArrayList<>();
+         if(root == null){
+         return m;
+         }
+        Queue<Node> mainque = new ArrayDeque<>();
+        mainque.add(root);
+        while(mainque.size() > 0){
+            int count = mainque.size();
+            ArrayList<Integer> res= new ArrayList<>();
+            for(int i =0;i< count;i++){
+           Node curr = mainque.poll();
+            res.add(curr.data);
+            
+            if(curr.left != null){
+                mainque.add(curr.left);
+            }
+            if(curr.right != null){
+                mainque.add(curr.right);
+            }
+            
+           }
+            m.add(res);
+            
+        }
+       
+        return m;
+    }
 }
