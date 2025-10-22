@@ -100,3 +100,33 @@ class Solution {
         return  root;
     }
 }
+//construct BT from inorder and postorder
+class Solution2 {
+    public static Node buildTree(int inorder[], int postorder[]) {
+        // code here
+        int  n = inorder.length;
+        return build(postorder,0,n-1,inorder,0,n-1);
+    }
+    public static Node build(int[] post,int psi,int pei,int[] in,int isi,int iei){
+        if(isi > iei || psi > pei){
+            return null;
+        }
+        // create root node from postorder because postorder's last element is root
+        Node root = new Node(post[pei]);
+        // find the index of root in inorder
+        int idx = isi;
+        while( in[idx] != post[pei]){
+            idx++;
+        }
+        // calculate the total elements in left subtree
+        int totalEle = idx - isi;
+        // recursively build left and right subtrees
+        //leftpost = psi to psi+totalEle-1
+        //lefin = isi to idx-1
+        //rightpost = psi+totalEle to pei-1
+        //rightin = idx+1 to iei
+        root.left = build(post,psi,psi+totalEle-1,in,isi,idx-1);
+        root.right = build(post,psi+totalEle,pei-1,in,idx+1,iei);
+        return  root;
+    }
+}
