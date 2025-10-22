@@ -4,6 +4,8 @@ import java.util.*;
  class Node {
     int data;
     Node next;
+    public Node left;
+    public Node right;
 
     Node(int data) {
         this.data = data;
