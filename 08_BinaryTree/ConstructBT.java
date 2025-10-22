@@ -1,21 +1,13 @@
 
- 
+
 import java.util.*;
 
-class ConstructBT {
-    
-  public class Node {
-     int val;
-     Node left;
-     Node right;
-    Node() {}
-     Node(int val) { this.val = val; }
-     Node(int val, Node left, Node right) {
-         this.val = val;
-         this.left = left;
-         this.right = right;
-     }
- }
+public class ConstructBT {
+    public Node root;
+    public ConstructBT(){} 
+    public ConstructBT(Integer[] preorder) {
+        Node root = buildTree(preorder);
+    }
     static class Pair {
         Node node;
         int state;
@@ -26,6 +18,7 @@ class ConstructBT {
         }
     }
 
+    // method to build binary tree
     public Node buildTree(Integer[] preorder) {
         if (preorder == null || preorder.length == 0 || preorder[0] == null) 
             return null;
@@ -40,7 +33,6 @@ class ConstructBT {
             Pair top = stack.peek();
 
             if (top.state == 1) {
-                // process left child
                 if (preorder[index] != null) {
                     Node left = new Node(preorder[index]);
                     top.node.left = left;
@@ -50,7 +42,6 @@ class ConstructBT {
                 index++;
             } 
             else if (top.state == 2) {
-                // process right child
                 if (index < preorder.length && preorder[index] != null) {
                     Node right = new Node(preorder[index]);
                     top.node.right = right;
@@ -60,11 +51,52 @@ class ConstructBT {
                 index++;
             } 
             else {
-                // both children processed
                 stack.pop();
             }
         }
 
         return root;
+    }
+}
+// Construct BT from inorder and preorder
+/*
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int val) {
+        data = val;
+        left = right = null;
+    }
+}
+*/
+
+class Solution {
+    public static Node buildTree(int inorder[], int preorder[]) {
+        // code here
+        int  n = inorder.length;
+        return build(preorder,0,n-1,inorder,0,n-1);
+    }
+    public static Node build(int[] pre,int psi,int pei,int[] in,int isi,int iei){
+        if(isi > iei || psi > pei){
+            return null;
+        }
+        // create root node from preorder because preorder's first element is root
+        Node root = new Node(pre[psi]);
+        // find the index of root in inorder
+        int idx = isi;
+        while( in[idx] != pre[psi]){
+            idx++;
+        }
+        // calculate the total elements in left subtree
+        int totalEle = idx - isi;
+        // recursively build left and right subtrees
+        //leftpre = psi+1 to psi+totalEle
+        //lefin = isi to idx-1
+        //rightpre = psi+totalEle+1 to pei
+        //rightin = idx+1 to iei
+        root.left = build(pre,psi+1,psi+totalEle,in,isi,idx-1);
+        root.right = build(pre,psi+totalEle+1,pei,in,idx+1,iei);
+        return  root;
     }
 }
