@@ -31,6 +31,7 @@ public class LevelOrderTraversal {
 class Node {
     int data;
     Node left, right;
+    public Object next;
 
     Node(int item) {
         data = item;
