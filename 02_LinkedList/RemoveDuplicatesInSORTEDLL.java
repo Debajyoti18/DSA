@@ -7,6 +7,7 @@ class Node
     }
 */
 
+// IMPORTANT : Duplicates are always adjacent (next to each other).
 class Solution {
     // Function to remove duplicates from sorted linked list.
     Node removeDuplicates(Node head) {
