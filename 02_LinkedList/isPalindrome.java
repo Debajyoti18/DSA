@@ -31,4 +31,28 @@ class Solution {
         }
         
     }
+    // Find mid then reverse second half then check both halves by pointers (O(n) time and O(1) space)
+    public boolean isPalindrome2(Node head) {
+        if(head == null || head.next == null){
+            return true;
+        }
+        // find mid
+        Node mid = findMid(head); // O(n)
+        // reverse second half
+        Node revNode = reverseList(mid.next);// O(n/2)
+        // compare both halves
+        Node left = head;
+        Node right = revNode;
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+            
+        }// restore the list (optional)
+        mid.next = reverseList(revNode);
+
+        return true;
+    }
 }
