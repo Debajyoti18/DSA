@@ -16,9 +16,9 @@ class Solution {
         Node p = head1;
         Node q = head2;
         // dummy node to store the merged linked list
-         Node newnode = new Node(0);
+         Node dummy = new Node(0);
          // pointer to dummy node
-         Node dummy = newnode;
+         Node prev = newnode;
         
         while(p != null && q!= null){
             // compare the data of both linked list and insert the smaller one
@@ -29,8 +29,8 @@ class Solution {
                     dummy.next = q;
                     q = q.next;
                 }
-                // move the dummy pointer ahead
-                 dummy = dummy.next;
+                // move the prev pointer ahead
+                 prev = prev.next;
         }
         // if any of the linked list has remaining nodes
         if(p!= null){
@@ -39,6 +39,7 @@ class Solution {
          if(q!= null){
           dummy.next = q;  
         }
-        return newnode.next;
+        // dummy.next = p != null ? p : q;
+        return dummy.next;
     }
 }
