@@ -53,4 +53,30 @@ class Node{
     }
 }
 
-
+//unfolding a Linkedlist
+/*
+ * Given a folded linked list, unfold it to get the original linked list.
+  Note: Try to solve without using any auxiliary space.
+ */
+public Node unfoldLinkedList(Node head) {
+    if(head == null || head.next == null){ // handle for 0 or 1 node
+        return head;
+    }
+    Node firstHead = head; //odd positioned nodes
+    Node secondHead = head.next; //even positioned nodes
+    Node firstprev = firstHead;
+    Node secondprev = secondHead;
+    while(secondprev != null){
+        Node curr = secondprev.next;//store next of even node
+        //linking
+        firstprev.next = curr;
+        secondprev.next = curr.next;
+        //move pointers ahead
+        firstprev = firstprev.next;
+        secondprev = secondprev.next;
+        
+    }
+    firstprev.next = secondHead; //link end of first to head of second
+    return firstHead;
+}
+    
