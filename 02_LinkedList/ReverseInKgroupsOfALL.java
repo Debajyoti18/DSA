@@ -21,8 +21,7 @@ public class ReverseInKgroupsOfALL {
     /**
      * Helper function to prepend a node to the currently temporary list (th/tt).
      * This effectively reverses the order of the nodes passed to it sequentially.
-     *
-     * @param node The node to be added to the front.
+    
      */
     public static void addFirstNode(ListNode node) {
         if (th == null) {
