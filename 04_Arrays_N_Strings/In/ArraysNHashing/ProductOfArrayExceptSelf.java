@@ -1,3 +1,4 @@
+package ArraysNHashing;
 package 04_Arrays_N_Strings.In;
 
 public class ProductOfArrayExceptSelf {
