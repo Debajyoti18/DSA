@@ -26,14 +26,17 @@ public class Knapsack_01 {
         return dp[n][w];
     }
 
-    //Recursive + Memoizaization
+    //Recursive + Memoizaization = Top-Down
     private static int knapsack(int w, int[] wt, int[] val, int n) {
         if( n == 0 || w == 0){
             return 0;
         }
+        if(dp[n][W] != -1){
+            return dp[n][w];
+        }
         if(wt[n-1] <= w){
-            return Math.max((val[n-1]+ knapsack( w-wt[n-1],wt, val, n-1)),
-            knapsack(w, wt, val, n-1));
+            return Math.max((val[n-1]+ knapsack( w-wt[n-1],wt, val, n-1)),// include
+            knapsack(w, wt, val, n-1));// exclude
         }
         return knapsack(w, wt, val, n-1);
     }

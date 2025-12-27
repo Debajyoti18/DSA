@@ -32,6 +32,7 @@ public class CountSubsetSum {
         }
     }
 
+// Recursive + Memoization = Top-Down
     private static int subsetSum(int[] arr, int n, int sum, int[][] dp) {
         // Base cases
         if (sum == 0) return 1;   // Empty subset also counts
@@ -48,6 +49,25 @@ public class CountSubsetSum {
             dp[n][sum] = subsetSum(arr, n - 1, sum, dp); // can't include
         }
 
+        return dp[n][sum];
+    }
+    // Time Complexity: O(n*sum)
+    // Space Complexity: O(n*sum)
+    //Bottom-UP approach can also be implemented
+    private static int subsetSumBottomUp(int[] arr, int n, int sum, int[][] dp) {
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= sum; j++) {
+                if (j == 0) {
+                    dp[i][j] = 1; // There's one way to make sum 0: the empty subset
+                } else if (i == 0) {
+                    dp[i][j] = 0; // No way to make positive sum with 0 elements
+                } else if (arr[i - 1] <= j) {
+                    dp[i][j] = dp[i - 1][j - arr[i - 1]] + dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
         return dp[n][sum];
     }
 }
