@@ -1,3 +1,4 @@
+package Practice.TwoPointer;
 class Solution {
     //Time Complexity: O(N) where N is the number of elements in the array
     public int removeDuplicates(int[] nums) {

@@ -15,5 +15,23 @@ class Solution {
             }
         }
         return maxl;
+        //printing LCS
+        StringBuilder sb = new StringBuilder();
+        int i = n, j = m;
+        while(i > 0 && j > 0){
+            //When match move diagonally and add to result
+            if(nums1[i-1] == nums2[j-1]){
+                sb.append(nums1[i-1]);
+                i--;// move diagonally
+                j--;
+            } else{
+                if(dp[i-1][j] > dp[i][j-1]){
+                    i--;
+                } else{
+                    j--;
+                }
+            }
+        }
     }
+
 }

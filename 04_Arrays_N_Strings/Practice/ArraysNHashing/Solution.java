@@ -1,4 +1,4 @@
-package ArraysNHashing;
+package Practice.ArraysNHashing;
 /**
  * Create an empty map where each key will be the sorted version of a string and each value will be a list of words that match that key.
     For every string in the input array, convert it to a char array and sort the characters.

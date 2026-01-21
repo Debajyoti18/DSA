@@ -1,4 +1,4 @@
-package In.SlidingWindow;
+package Practice.SlidingWindow;
 /**
  * Sliding Window Maximum
  * Intuition: 

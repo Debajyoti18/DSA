@@ -1,4 +1,4 @@
-package In.ArraysNHashing;
+package Practice.ArraysNHashing;
 public class Strings {
     public static void main(String[] args) {
         String str = "abcde";

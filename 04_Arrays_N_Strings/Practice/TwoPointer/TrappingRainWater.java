@@ -1,3 +1,4 @@
+package Practice.TwoPointer;
 /**
  * LeetCode Problem 42: Trapping Rain Water
  * Intuition:
