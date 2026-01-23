@@ -1,3 +1,4 @@
+package Maths;
 public class KRotationOfArray {
     public static void main(String[] args) {
         int[] a = {12 ,34 ,22,56,74,88};

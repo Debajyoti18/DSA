@@ -1,3 +1,4 @@
+package Maths;
 public class InverseOfAnArray {
     public static void main(String[] args) {
         int[] a = {3 ,4 ,1,2,0};

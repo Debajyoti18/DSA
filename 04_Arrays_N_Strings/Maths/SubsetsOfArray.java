@@ -1,3 +1,4 @@
+package Maths;
 public class SubsetsOfArray {
     public static void main(String[] args) {
         String[] arr = {"a","b","c","d"};

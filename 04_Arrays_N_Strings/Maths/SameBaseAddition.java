@@ -1,3 +1,4 @@
+package Maths;
 public class SameBaseAddition {
 
     public static void main(String[] args) {
